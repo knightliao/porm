@@ -6,7 +6,6 @@ import decimal
 
 import re
 
-from porm.db.models import Model
 from porm.execute.query import Q
 from porm.utils.func import ternary
 
@@ -394,6 +393,8 @@ class ForeignRelatedObject(object):
             setattr(instance, self.field_column, None)
             setattr(instance, self.cache_name, None)
         else:
+            from porm.db.models import Model
+
             if not isinstance(obj, Model):
                 setattr(instance, self.field_column, obj)
             else:
@@ -460,11 +461,15 @@ class ForeignKeyField(IntegerField):
         self.to._meta.reverse_relations[self.related_name] = klass
 
     def lookup_value(self, lookup_type, value):
+        from porm.db.models import Model
+
         if isinstance(value, Model):
             return value.get_pk()
         return value or None
 
     def db_value(self, value):
+        from porm.db.models import Model
+
         if isinstance(value, Model):
             return value.get_pk()
         if self.null and value is None:

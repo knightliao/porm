@@ -1,0 +1,38 @@
+[loggers]
+keys=root, porm
+
+[handlers]
+keys=consoleHandler, fileHandler
+
+[formatters]
+keys=richFormatter
+
+[logger_root]
+level=INFO
+handlers=consoleHandler,fileHandler
+
+[logger_porm]
+level=DEBUG
+qualname=porm
+handlers=
+
+[handler_consoleHandler]
+class=StreamHandler
+level=DEBUG
+formatter=richFormatter
+args=(sys.stdout,)
+
+
+[handler_fileHandler]
+class=handlers.TimedRotatingFileHandler
+level=DEBUG
+formatter=richFormatter
+args=('porm.log', 'midnight', 1, 0)
+
+
+[formatter_richFormatter]
+format=[%(levelname)1.1s %(asctime)s %(name)s %(threadName)s %(module)s:%(lineno)d] %(message)s
+class=logging.Formatter
+datefmt=%Y%m%d%H%M%S
+
+

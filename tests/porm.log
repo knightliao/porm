@@ -1,0 +1,5 @@
+[I 20150827195032 root MainThread tests:18] <porm.execute.query.RawQuery object at 0x1044ac950>
+[I 20150827195053 root MainThread tests:18] <porm.execute.query.RawQuery object at 0x1044ac950>
+[I 20150827195128 root MainThread tests:18] ('SELECT id, title FROM blog', [])
+[I 20150827195128 root MainThread tests:22] ('SELECT id, title FROM blog WHERE title = ?', ['a'])
+[I 20150827195128 root MainThread tests:26] ('SELECT id, title FROM blog WHERE title = ? OR title = ?', ['a', 'b'])

@@ -1,11 +1,5 @@
 #!/usr/bin/env python
 # coding=utf8
-import logging
-
-from porm.db.models import Model
-
-
-logger = logging.getLogger('peewee.logger')
 
 
 class QueryResultWrapper(object):
@@ -828,6 +822,8 @@ class SelectQuery(BaseQuery):
     @returns_clone
     def group_by(self, *clauses):
         model = self.query_context
+        from porm.db.models import Model
+
         for clause in clauses:
             if isinstance(clause, basestring):
                 fields = (clause,)
@@ -849,6 +845,8 @@ class SelectQuery(BaseQuery):
 
     @returns_clone
     def order_by(self, *clauses):
+        from porm.db.fields import Field
+
         order_by = []
 
         for clause in clauses:
@@ -1287,6 +1285,8 @@ def convert_lookup(model, joins, lookup):
                 # piece is something like 'blog' or 'entry_set'
                 joined_model = None
                 for field in query_model._meta.get_fields():
+                    from porm.db.fields import Field, ForeignKeyField
+
                     if not isinstance(field, ForeignKeyField):
                         continue
 

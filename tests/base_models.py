@@ -20,14 +20,14 @@ class QueryLogHandler(logging.Handler):
         self.queries.append(record)
 
 
-BACKEND = os.environ.get('PEEWEE_TEST_BACKEND', 'sqlite')
-TEST_VERBOSITY = int(os.environ.get('PEEWEE_TEST_VERBOSITY') or 1)
+BACKEND = os.environ.get('PORM_TEST_BACKEND', 'sqlite')
+TEST_VERBOSITY = int(os.environ.get('PORM_TEST_VERBOSITY') or 1)
 
 database_params = {}
 
 if BACKEND == 'mysql':
     database_class = MySQLDatabase
-    database_name = 'peewee_test'
+    database_name = 'porm_test'
 else:
     database_class = SqliteDatabase
     database_name = 'tmp.db'

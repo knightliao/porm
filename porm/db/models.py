@@ -12,7 +12,7 @@ from porm.db.fields import PrimaryKeyColumn, PrimaryKeyField, ForeignKeyField, F
 from porm.execute.query import SelectQuery, filter_query, DoesNotExist, RawQuery, InsertQuery, DeleteQuery, UpdateQuery
 
 
-DATABASE_NAME = os.environ.get('PEEWEE_DATABASE', 'peewee.db')
+DATABASE_NAME = os.environ.get('PORM_DATABASE', 'porm.db')
 
 # define a default database object in the module scope
 database = SqliteDatabase(DATABASE_NAME)

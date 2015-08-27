@@ -8,7 +8,7 @@ from porm.utils.func import ternary
 from porm.db.adapter import MySQLAdapter, SqliteAdapter
 
 
-logger = logging.getLogger('peewee.logger')
+logger = logging.getLogger('porm.logger')
 
 
 #
