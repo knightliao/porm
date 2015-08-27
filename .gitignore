@@ -10,3 +10,4 @@ to_config.py
 /dist
 /build
 /porm.egg-info
+*.log
