@@ -7,3 +7,6 @@
 /data
 to_config.py
 /online
+/dist
+/build
+/porm.egg-info
