@@ -1,0 +1,9 @@
+*.py[cod]
+/.pydevproject
+/log/*.log
+/.settings
+/.project
+/.idea
+/data
+to_config.py
+/online
