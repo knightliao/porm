@@ -2,6 +2,7 @@
 
 from __future__ import with_statement
 import logging
+import datetime
 
 import os
 
@@ -100,6 +101,19 @@ class Relationship(TestModel):
     to_user = ForeignKeyField(User, related_name='related_to')
 
 
+class Team(TestModel):
+    name = CharField()
 
 
+class Member(TestModel):
+    username = CharField()
 
+
+class Membership(TestModel):
+    team = ForeignKeyField(Team)
+    member = ForeignKeyField(Member)
+
+
+class DefaultVals(TestModel):
+    published = BooleanField(default=True)
+    pub_date = DateTimeField(default=datetime.datetime.now, null=True)
