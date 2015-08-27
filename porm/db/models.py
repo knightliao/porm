@@ -91,6 +91,9 @@ class BaseModelOptions(object):
                self.get_reverse_related_field_for_model(model)
 
 
+#
+# 基准model
+#
 class BaseModel(type):
     inheritable_options = ['database', 'indexes', 'ordering', 'pk_sequence']
 

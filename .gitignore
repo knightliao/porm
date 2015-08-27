@@ -11,3 +11,4 @@ to_config.py
 /build
 /porm.egg-info
 *.log
+doc
